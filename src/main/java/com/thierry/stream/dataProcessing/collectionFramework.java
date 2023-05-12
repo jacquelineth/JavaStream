@@ -4,15 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.function.Function;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
-import java.util.function.BinaryOperator;
-import java.util.function.BiPredicate;
-import java.util.function.IntPredicate;
-import java.util.function.IntFunction;
+import java.util.function.*;
+import java.util.stream.Collectors;
+
 
 class Person {
     String firstName;
@@ -106,9 +100,14 @@ class Person {
         names.stream().filter(name -> name.startsWith("T")).forEach(System.out::println);
 
         System.out.println("============Sort Name on people's Age========================");
-        Function<String, Integer> nameToAge = name -> people.stream().filter(person -> person.getFirstName().equals(name)).findFirst().get().getAge();
+        /*  Open issue ; What to do when the name is not found 
+        How to return a default value when the filter returns an empty list
+        Function<String, Integer> nameToAge = name -> people.stream().filter(person -> person.getFirstName().equals(name)).;
         System.out.println("Thierry "+nameToAge.apply("Toto"));
+
+        */
         //names.sort(Comparator.comparing(nameToAge));
- 
+        //Map
+        
     }
 }
