@@ -55,7 +55,7 @@ interface MComparator<T> extends Comparator<T>{
      */
     public static <U> Comparator<U> comparing(Function<U, Comparable<U>> f) {
        // return (p1, p2) -> f.apply(p1) - f.apply(p2); when defined as int
-       return (p1, p2) -> f.apply(p1).compareTo((U) f.apply(p2));
+       return (p1, p2) -> f.apply(p1).compareTo( (U)(f.apply((U)p2)));
     }
 
     public default MComparator<T> thenComparing(MComparator<T> cmp) {
